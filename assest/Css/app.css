@@ -1,0 +1,40 @@
+*{
+  box-sizing: border-box;
+  padding:0;
+  margin:0;
+}
+body,html{
+  height:100%;
+  width:100%;
+}
+.container{
+  position: relative;
+  height:100%;
+  width:100%;
+}
+#board{
+  margin: auto; 
+  width:100%;
+  height: 100%;
+}
+.game{
+  width: 100%;
+  margin: auto;
+}
+.title{
+  text-align: center;
+}
+.top{
+  border-bottom:solid 1px black;
+}
+.middle{
+  border-bottom:solid 1px black;
+}
+.left-cell,.right-cell{
+  padding:2rem;
+}
+.middle-cell{
+  padding:2rem;
+  border-left:solid black 1px;
+  border-right:solid 1px black;
+}
