@@ -6,6 +6,7 @@
 body,html{
   height:100%;
   width:100%;
+  background-color: cornflowerblue;
 }
 .container{
   position: relative;
@@ -23,6 +24,7 @@ body,html{
 }
 .title{
   text-align: center;
+  padding-bottom:6rem;
 }
 .top{
   border-bottom:solid 1px black;
@@ -34,7 +36,12 @@ body,html{
   padding:2rem;
 }
 .middle-cell{
-  padding:2rem;
+  padding:2.8rem;
   border-left:solid black 1px;
   border-right:solid 1px black;
+}
+@media(min-width:26.25rem){
+  #board{
+    width:60%;
+  }
 }
