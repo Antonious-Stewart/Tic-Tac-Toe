@@ -26,19 +26,28 @@ body,html{
   text-align: center;
   padding-bottom:6rem;
 }
-.top{
-  border-bottom:solid 1px black;
-}
+.top,
+.bottom,
 .middle{
-  border-bottom:solid 1px black;
+  font-size: 2em;
+  font-weight: 900;
+}
+.top,
+.middle{
+  border-bottom:solid 1px white;
+  text-align: center;
+}
+
+.bottom{
+  text-align: center;
 }
 .left-cell,.right-cell{
   padding:2rem;
 }
 .middle-cell{
   padding:2.8rem;
-  border-left:solid black 1px;
-  border-right:solid 1px black;
+  border-left:solid white 1px;
+  border-right:solid 1px white;
 }
 @media(min-width:26.25rem){
   #board{
