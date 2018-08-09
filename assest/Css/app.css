@@ -49,6 +49,9 @@ body,html{
   border-left:solid white 1px;
   border-right:solid 1px white;
 }
+input[type="text"]{
+  display: block;
+}
 @media(min-width:26.25rem){
   #board{
     width:60%;
