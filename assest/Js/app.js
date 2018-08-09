@@ -6,18 +6,7 @@ let winner = false;
 let tie = false;
 let winnerName;
 
-//get players name for xs and os
-window.onload = ()=>{
-  const playerX = prompt("Your X's! whats your name?: ");
-  const playerO = prompt("Your O's! whats your name?: ");
-  //compare variables to see if string and add names
-  if(typeof playerO ===  "string" && typeof playerX ===  "string"){
-    const X = document.querySelector('.X');
-    const O = document.querySelector('.O');
-    X.textContent = playerX;
-    O.textContent = playerO;
-  }
-};
+
 const vertical = (top,middle,bottom)=>{
   // if textContent in 3 vertical rows (top,middle and bottom ) then declare a winner
   const topChildren = top.children;
@@ -39,7 +28,7 @@ const horizontal = (top,middle,bottom)=>{
   const middleChildren = middle.children;
   const bottomChildren = bottom.children;
   // match board input for three in a row
-  
+
   if(topChildren[0].textContent === "X" && topChildren[1].textContent === "X" && topChildren[2].textContent === "X"){
     console.log("X wins")
   } else if (middleChildren[0].textContent === "X" && middleChildren[1].textContent === "X" && middleChildren[2].textContent === "X"){
