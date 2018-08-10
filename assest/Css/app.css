@@ -7,6 +7,7 @@ body,html{
   height:100%;
   width:100%;
   background-color: cornflowerblue;
+  overflow-y: hidden;
 }
 .container{
   position: relative;
@@ -51,6 +52,70 @@ body,html{
 }
 input[type="text"]{
   display: block;
+}
+.modal-bd{
+  display: block;
+  background-color: black;
+  opacity: .5;
+  position: absolute;
+  height: 100%;
+  width:100%; 
+}
+#endGame-backdrop{
+  display: none;
+}
+.popUp{
+  display: block;
+  background-color: white;
+  height: 21rem;
+  width:80%;
+  position: absolute;
+  z-index: 1;
+  top:20%;
+  left:10%;
+  padding:3.5em;
+  text-align: center;
+  box-shadow: 0.04em .09em .8em black; 
+  overflow: scroll;
+}
+.gameBegin{
+  display: block;
+  margin: auto;
+  padding:1em;
+  border-radius: 100%;
+  border: none;
+  width:5em;
+  font-size:1.1em;
+  font-weight: 700;
+  background-color: red;
+  outline: none;
+}
+.congratulations{
+  padding-bottom:2rem;
+}
+#tieGame{
+  display: none;
+}
+.playAgain{
+  display: block;
+  margin: auto;
+  padding:1em;
+  border-radius: 100%;
+  border: none;
+  width:5em;
+  font-size:1.1em;
+  font-weight: 700;
+  background-color: green;
+  outline: none;
+}
+#gameOver{
+  display: none;
+}
+input[type="checkbox"]{
+  display: inline-block;
+}
+p{
+  display: inline-block;
 }
 @media(min-width:26.25rem){
   #board{
