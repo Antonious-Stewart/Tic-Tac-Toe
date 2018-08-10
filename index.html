@@ -9,12 +9,36 @@
 </head>
 <body>
   <div class="container">
+    <div id="backdrop" class="modal-bd"></div>
+    <div id="modal" class="popUp">
+      <h1>Are You Ready!</h1>
+      <ol id="rules">
+        <li class="rule">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi amet ea laboriosam quam ad? Blanditiis repellendus temporibus aliquid. Nulla, ab.</li>
+        <li class="rule">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis quae deserunt ab? Eum similique illo commodi aliquid magni, iure aliquam!</li>
+        <li class="rule">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero laudantium quod eligendi distinctio sequi incidunt assumenda quasi dolorum, tempora accusamus.</li>
+        <li class="rule">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam illum iusto pariatur in expedita nobis doloremque nam assumenda dignissimos omnis!</li>
+      </ol>
+      <input type="checkbox" name="agree" id="agree"> <p id="rule-acceptance">Do You agree to the rules</p>
+       <button class="gameBegin">Start</button>
+    </div>
+    <div id="endGame">
+      <div id="endGame-backdrop" class="modal-bd"></div>
+      <div id="gameOver" class="popUp">
+        <h1 class="gameOver-title">WEEEE HAVE A WINNER!</h1>
+        <p class="congratulations"></p>
+        <button class="playAgain">Play Again?</button>
+      </div>
+      <div id="tieGame" class="popUp">
+        <h1 class="tie-title">Its a Tie Game!</h1>
+        <p class="congratulations">Well played!</p>
+        <button class="playAgain tied-game">Play Again?</button>
+      </div>
+    </div>
     <h1 class="title">Tic-Tac-Toe</h1>
     <input type="text" placeholder="Player One">
     <input type="text" placeholder="Player 2">
     <span id="turns"></span>
     <div id="board">
-        
       <table class="game">
         <tbody>
           <tr id="top">
