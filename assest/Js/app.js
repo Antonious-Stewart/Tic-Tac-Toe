@@ -9,9 +9,25 @@ const modal = gamebutton.parentElement;
 const backdrop = document.querySelector("#backdrop");
 const endGameBackDrop = document.querySelector("#endGame-backdrop");
 let turns = 9; // turn to begin at one so its an odd number
-let gameOver = false;
-let tie = false;
+let gameOver;
+let tie;
 let winnerName;
+const playAgain = ()=>{
+  const playAgainButton = document.querySelectorAll(".playAgain");
+  for (let i = 0; i < playAgainButton.length; i++) {
+    const button = playAgainButton[i];
+    button.addEventListener("click",()=>{
+    clearBoard(topRow);
+    clearBoard(bottomRow);
+    clearBoard(middleRow);
+    gameOver = false;
+    endGameBackDrop.style.display = "none";
+    gameOverDiv.style.display = "none";
+    tieGameDiv.style.display = "none";
+    spotlight();
+  });
+  }
+};
 // has 3 in a row
 const winner = ()=>{
   if(gameOver){
@@ -19,7 +35,7 @@ const winner = ()=>{
     gameOverDiv.style.display = "block";
     playAgain();
   }
-}
+};
 // game tied due to turns === 0 and no 3 in a row
 const tieGame = ()=>{
   if (tie) {
@@ -27,7 +43,7 @@ const tieGame = ()=>{
       tieGameDiv.style.display = "block";
       playAgain();
   }
-}
+};
 // diagnoal 3 in a row
 const diagnoal = (top,middle,bottom)=>{
   //if textContent in 3 diagonal rows ( top middle and bottom ) then declare a winner
@@ -87,7 +103,7 @@ const horizontal = (top,middle,bottom)=>{
   else if (bottomChildren[0].textContent === "O" && bottomChildren[1].textContent === "O" && bottomChildren[2].textContent === "O"){
     gameOver = true;
     winner();
-  };
+  }
 };
 // add turn counter should be equal to number of spaces avaible
 const turnSpan = ()=>{
@@ -100,26 +116,42 @@ const tokenConfig = (evt)=>{
   turnSpan();
   //add turns odd is O even is X
   if(turns % 2 === 0 && evt.target.textContent === ""){
-    const token = evt.target.innerHTML = 'X';
+    const token = evt.target.innerHTML = 'O';
+    
     vertical(topRow,middleRow,bottomRow);
     horizontal(topRow,middleRow,bottomRow);
     diagnoal(topRow,middleRow,bottomRow);
     turns--;// countdown from 9 when piece is clicked
+    spotlight();
     turnSpan();
    } else if(turns % 2 !== 0 && evt.target.textContent === "") {
-     const token = evt.target.innerHTML = 'O';
+     const token = evt.target.innerHTML = 'X';
      vertical(topRow,middleRow,bottomRow);
      horizontal(topRow,middleRow,bottomRow);
      diagnoal(topRow,middleRow,bottomRow);
      turns--;
+     spotlight();
      turnSpan();
    }
+  gameOver= false;
    // if all pieces are filled display tie game and play again button
    if(turns === 0 && !gameOver){
      tie = true;
     tieGame();
   }
 };
+//hightlight which players turn it is
+const spotlight = ()=>{
+  const players = document.querySelector("#players").children;
+  if(turns % 2 === 0){
+    players[1].style.boxShadow = "0.2em .3em .7em yellow";
+    players[0].style.boxShadow = "0.2em .3em .7em black";
+  } else {
+    players[1].style.boxShadow = "0.2em .3em .7em black";
+    players[0].style.boxShadow = "0.2em .3em .7em yellow";
+  }
+}
+spotlight();
 //add the token
 const token = () =>{
   topRow.addEventListener("click",evt =>{
@@ -160,14 +192,5 @@ const clearBoard = (item)=>{
   }
 }
 // restart game and enjoy
-const playAgain = ()=>{
-  const playAgainButton = document.querySelector(".playAgain");
-  playAgainButton.addEventListener("click",()=>{
-    clearBoard(topRow);
-    clearBoard(bottomRow);
-    clearBoard(middleRow);
-    endGameBackDrop.style.display = "none";
-    gameOverDiv.style.display = "none";
-  })
-}
+
 
