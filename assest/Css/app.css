@@ -47,6 +47,9 @@ body,html{
 .left-cell,.right-cell{
   padding:2rem;
 }
+ol{
+  list-style-type:none;
+}
 .middle-cell{
   padding:2.8rem;
   border-left:solid white 1px;
